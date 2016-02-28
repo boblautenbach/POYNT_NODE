@@ -15,7 +15,7 @@ Request:<BR>
 
 refreshTokenCode: if you use the refreshTokenCode value from a previous token creation or leave it as “ ”, you will receive a new token.<BR>  
 
-Recommend modifying the request to add the private key as a base64 string vs. pulling from a key file<BR>
+<strong>Recommend modifying the request to add the private key as a base64 string vs. pulling from a key file</strong><BR>
 
 Response:<BR>
 {<BR>
@@ -50,7 +50,7 @@ Request:<br>
     "tipAmt": 150,<BR>
     "transId":"11323123",<BR>
     "refId":"someglobalId",<BR>
-    "callback": "http://requestb.in/12andiw1",<BR>
+    "callback": "http://requestb.in/werlwer23",<BR>
     "accessToken": "TOKEN FROM STEP ONE"<BR>
 }<BR>
 
