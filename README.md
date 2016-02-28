@@ -1,6 +1,6 @@
 # POYNT Payment Device Node API (https://poynt.com/)
 
-The POYNT system is great a standalone paymnet processing POS, but if you want to intergrate it with your existing POS or as poart of a custom POS you will need to implement the POYNT Cloud Messaging process.  I outline the steps required below.
+The POYNT system is great a standalone paymnet processing POS, but if you want to integrate it with your existing POS or as part of a custom POS you will need to implement the POYNT Cloud Messaging process.  I outline the steps required below.
 
 ##Step 1: Acquire a 24hr Access Token from the POYNT API Service
 
