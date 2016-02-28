@@ -5,40 +5,40 @@
 
 To access the POYNT Bridge or API you must have a valid POYNT Access token.  The tokens expire within 24hrs.   You can refresh the access token by simple re-calling the endpoint below.  The token should be cached locally (locally could be the POS device or the Salesforce server API (using something like redis).  Also note that the private RSA Key that was created when the POYNT Cloud create must we stored/made accessible to this method to generate a JWT. I am currently storing the key in a key.pem file accessible to the Node API
 
-Endpoint:	POST http://localhost:3000/api/token/
+Endpoint:	POST http://localhost:3000/api/token/<BR>
 
-Request:
-{
-    "appId":"YOUR APP ID FROM http://poynt.net/dashboard",
-    "refreshTokenCode": ""
-}
+Request:<BR>
+{<BR>
+    "appId":"YOUR APP ID FROM http://poynt.net/dashboard",<BR>
+    "refreshTokenCode": ""<BR>
+}<BR>
 
-refreshTokenCode: if you use the refreshTokenCode value from a previous token creation or leave it as “ ”, you will receive a new token.  
+refreshTokenCode: if you use the refreshTokenCode value from a previous token creation or leave it as “ ”, you will receive a new token.<BR>  
 
-Recommend modifying the request to add the private key as a base64 string vs. pulling from a key file
+Recommend modifying the request to add the private key as a base64 string vs. pulling from a key file<BR>
 
-Response:
-{
-  "accessToken": "A TOKEN FROM POYNT",
-  "GMTExpiration": "2016-02-17T04:02:17.484Z",
-  "refreshTokenCode": "A REFRESH TOKEN FROM POYNT"
-}
+Response:<BR>
+{<BR>
+  "accessToken": "A TOKEN FROM POYNT",<BR>
+  "GMTExpiration": "2016-02-17T04:02:17.484Z",<BR>
+  "refreshTokenCode": "A REFRESH TOKEN FROM POYNT"<BR>
+}<BR>
 
-GMTExpiration value is the date/time of expiration for the given token.   You need to account for the expiration and pull a new token every 20 hrs (or so) to ensure we never encounter a 401 error with POYNT.  This can be implemented on the POS device at login or on the server via some for of trigger.
-If you receive only a GMTExpiration value from the request POST, there was an issue interacting with the POYNT endpoint.
-
+GMTExpiration value is the date/time of expiration for the given token.   You need to account for the expiration and pull a new token every 20 hrs (or so) to ensure we never encounter a 401 error with POYNT.  This can be implemented on the POS device at login or on the server via some for of trigger.<BR><BR>
+If you receive only a GMTExpiration value from the request POST, there was an issue interacting with the POYNT endpoint.<BR>
+<BR>
 
 
 ##Step 2: Post a Transaction to the POYNT Bridge and Initialize the Payment Device to start the payment flow
-The POYNT Device is activated by the POYNT Cloud Messaging Bridge (not through direct access from the POS).  The POYNT Cloud receives the POST from the below endpoint and triggers the POYNT reader to start the payment flow interaction (CC payment, etc.).
+The POYNT Device is activated by the POYNT Cloud Messaging Bridge (not through direct access from the POS).  The POYNT Cloud receives the POST from the below endpoint and triggers the POYNT reader to start the payment flow interaction (CC payment, etc.).<BR>
 
-When you POST to the POYNT Cloud Bridge, you will receive an immediate response object.  Only when the payment flow has completed will you then receive the resulting data packet about the transaction posted.  This is basically a callback process, where we provide the callback destination endpoint to POYNT.
+When you POST to the POYNT Cloud Bridge, you will receive an immediate response object.  Only when the payment flow has completed will you then receive the resulting data packet about the transaction posted.  This is basically a callback process, where we provide the callback destination endpoint to POYNT.<BR>
 
-I am using a site call http://requestb.in to test the callback functionality and to inspect the data packet(works very well).
+I am using a site call http://requestb.in to test the callback functionality and to inspect the data packet(works very well).<BR>
 
-A note on the format of the request body; dollar amounts should be written as follows: 100 = 1.00, 1200 = 12.00, etc.
+A note on the format of the request body; dollar amounts should be written as follows: 100 = 1.00, 1200 = 12.00, etc.<BR>
 
-Endpoint:  POST localhost:3000/api/transaction
+Endpoint:  POST localhost:3000/api/transaction<BR>
 
 Request:<br>
 {<BR>
