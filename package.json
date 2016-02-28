@@ -1,0 +1,17 @@
+{
+  "name": "poyntapiserver",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "node poyntserver.js"
+  },
+  "dependencies": {
+    "express": "4.x.x",
+    "bluebird": "3.x.x",
+    "jwt-simple": "0.x.x",
+    "request": "2.x.x",
+    "body-parser": "1.x.x",
+    "base64-js": "1.x.x",
+    "moment" : "1.6.x"
+  },
+   "engine": "node >= 0.12.7"
+}
