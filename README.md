@@ -1,4 +1,4 @@
-# POYNT Paymnet Device Node API
+# POYNT Payment Device Node API (https://poynt.com/)
 
 
 ##Step 1: Acquire a 24hr Access Token from the POYNT API Service
