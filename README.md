@@ -3,7 +3,7 @@
 
 ##Step 1: Acquire a 24hr Access Token from the POYNT API Service
 
-To access the POYNT Bridge or API you must have a valid POYNT Access token.  The tokens expire within 24hrs.   You can refresh the access token by simple re-calling the endpoint below.  The token should be cached locally (locally could be the POS device or the Salesforce server API (using something like redis).  Also note that the private RSA Key that was created when the POYNT Cloud create must we stored/made accessible to this method to generate a JWT. I am currently storing the key in a key.pem file accessible to the Node API
+To access the POYNT Bridge or API you must have a valid POYNT Access token.  The tokens expire within 24hrs.   You can refresh the access token by simple re-calling the endpoint below.  The token should be cached locally (locally could be the POS device or the Salesforce server API (using something like redis).  Also note that the private RSA Key that was created when you created your Cloud app, must be stored/made accessible to this method to generate a JWT. I am currently storing the key in a key.pem file accessible to the Node API but I don't recommend that in prod--use a database or keystore...then you can pass the key as a base64 string in the request object.
 
 Endpoint:	POST http://localhost:3000/api/token/<BR>
 
