@@ -1,5 +1,6 @@
 # POYNT Payment Device Node API (https://poynt.com/)
 
+The POYNT system is great a standalone paymnet processing POS, but if you want to intergrate it with your existing POS or as poart of a custom POS you will need to implement the POYNT Cloud Messaging process.  I outline the steps required below.
 
 ##Step 1: Acquire a 24hr Access Token from the POYNT API Service
 
@@ -24,7 +25,7 @@ Response:<BR>
   "refreshTokenCode": "A REFRESH TOKEN FROM POYNT"<BR>
 }<BR>
 
-GMTExpiration value is the date/time of expiration for the given token.   You need to account for the expiration and pull a new token every 20 hrs (or so) to ensure we never encounter a 401 error with POYNT.  This can be implemented on the POS device at login or on the server via some for of trigger.<BR><BR>
+GMTExpiration value is the date/time of expiration for the given token.   You need to account for the expiration and pull a new token every 20 hrs (or so) to ensure we never encounter a 401 error with POYNT.  This can be implemented on the POS device at login or on the server via some from of trigger.<BR><BR>
 If you receive only a GMTExpiration value from the request POST, there was an issue interacting with the POYNT endpoint.<BR>
 <BR>
 
